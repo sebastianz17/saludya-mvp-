@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Salud Ya – Crear cuenta</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <a href="#">Contact Us</a>
+  <a href="#">Help</a>
+</nav>
+
+<div class="page">
+  <section class="hero">
+
+    <!-- LEFT -->
+    <div class="left">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L4 5.5V11c0 5 3.5 9.3 8 10.4C16.5 20.3 20 16 20 11V5.5L12 2zm0 10.5c-.4 0-.8-.1-1.1-.4L9 10.2l1.1-1.1 1.9 1.9 3.9-3.9 1.1 1.1-5 5c-.3.2-.7.3-1 .3z"/>
+          </svg>
+        </div>
+        <div class="brand-name">Salud <span>Ya</span></div>
+      </div>
+
+      <h1 class="headline">
+        Agenda tu cita médica<br>fácil, <em>rápida y segura</em>
+      </h1>
+
+      <div class="illustration">
+        <div class="blob"></div>
+
+        <div class="float-icon fi-calendar">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="4" width="18" height="17" rx="3" stroke="#2b5be0" stroke-width="1.8" fill="none"/>
+            <path d="M8 2v4M16 2v4M3 9h18" stroke="#2b5be0" stroke-width="1.8" stroke-linecap="round"/>
+            <circle cx="8" cy="14" r="1" fill="#2b5be0"/>
+            <circle cx="12" cy="14" r="1" fill="#2b5be0"/>
+            <circle cx="16" cy="14" r="1" fill="#2b5be0"/>
+          </svg>
+        </div>
+
+        <div class="float-icon fi-heart">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+        </div>
+
+        <div class="float-icon fi-lock">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="5" y="11" width="14" height="10" rx="2" stroke="#2b5be0" stroke-width="1.8" fill="none"/>
+            <path d="M8 11V7a4 4 0 018 0v4" stroke="#2b5be0" stroke-width="1.8" stroke-linecap="round"/>
+            <circle cx="12" cy="16" r="1.5" fill="#2b5be0"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="badge-secure">
+        <div class="dot">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L4 5.5V11c0 5 3.5 9.3 8 10.4C16.5 20.3 20 16 20 11V5.5L12 2z"/>
+          </svg>
+        </div>
+        <div class="badge-secure-text">
+          <strong>Acceso seguro y protegido</strong>
+          <span>Tu información está en buenas manos</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT — REGISTER CARD -->
+    <div class="card">
+      <h2 class="card-title">Crear cuenta</h2>
+      <p class="card-subtitle">Únete a Salud ya para gestionar tus citas médicas con facilidad.</p>
+
+      <!-- Row 1: Nombres + Apellidos -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="nombres">Nombres</label>
+          <input type="text" id="nombres" placeholder="Ej. Juan Andrés" autocomplete="given-name"/>
+        </div>
+        <div class="form-group">
+          <label for="apellidos">Apellidos</label>
+          <input type="text" id="apellidos" placeholder="Ej. Pérez García" autocomplete="family-name"/>
+        </div>
+      </div>
+
+      <!-- Row 2: Tipo de Documento + Número -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="tipo-doc">Tipo de Documento</label>
+          <div class="select-wrap">
+            <select id="tipo-doc">
+              <option value="" disabled selected>Seleccione...</option>
+              <option value="cc">Cédula de Ciudadanía</option>
+              <option value="ce">Cédula de Extranjería</option>
+              <option value="pas">Pasaporte</option>
+              <option value="ti">Tarjeta de Identidad</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="num-doc">Número de documento</label>
+          <input type="text" id="num-doc" placeholder="123456789" autocomplete="off"/>
+        </div>
+      </div>
+
+      <!-- Row 3: Correo (full width) -->
+      <div class="form-row">
+        <div class="form-group full">
+          <label for="email">Correo Electrónico</label>
+          <input type="email" id="email" placeholder="nombre@ejemplo.com" autocomplete="email"/>
+        </div>
+      </div>
+
+      <!-- Row 4: Teléfono (full width) -->
+      <div class="form-row">
+        <div class="form-group full">
+          <label for="telefono">Número de celular</label>
+          <div class="phone-wrap">
+            <div class="phone-prefix">+57</div>
+            <input type="tel" id="telefono" placeholder="300 000 0000" autocomplete="tel"/>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 5: Contraseña + Confirmar -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <div class="pass-wrap">
+            <input type="password" id="password" placeholder="••••••••" autocomplete="new-password"/>
+            <button class="pass-toggle" type="button" aria-label="Mostrar contraseña" onclick="togglePass('password', this)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="form-group input-error">
+          <label for="confirm-password" class="error-label">Confirmar Contraseña</label>
+          <div class="pass-wrap">
+            <input type="password" id="confirm-password" placeholder="••••••••" autocomplete="new-password"/>
+            <button class="pass-toggle" type="button" aria-label="Mostrar contraseña" onclick="togglePass('confirm-password', this)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Checkbox -->
+      <div class="checkbox-row">
+        <input type="checkbox" id="terms"/>
+        <label for="terms">
+          Acepto los <a href="#">Términos de Servicio</a> y la <a href="#">Política de Privacidad</a> de Salud ya.
+        </label>
+      </div>
+
+      <!-- Buttons -->
+      <div class="btn-row">
+        <button class="btn-cancel" type="button" onclick="window.location.href='login1.html'">Cancelar</button>
+        <button class="btn-create" type="button" onclick="window.location.href='bienvenido.html'">Crear cuenta</button>
+      </div>
+
+      <p class="login-text">
+        ¿Ya tienes una cuenta? <a href="login1.html">Inicia sesión aquí</a>
+      </p>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <div class="footer-brand">Salud <span>ya</span></div>
+      <div class="footer-copy">© 2026 Salud ya. All rights reserved. Experiencia &amp; Precisión.</div>
+    </div>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Support</a>
+    </div>
+  </footer>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,813 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --blue-dark: #1a3c8f;
+  --blue-mid:  #2b5be0;
+  --blue-accent: #4f7dff;
+  --teal: #3ec6d4;
+  --bg: #e8f1fb;
+  --card-bg: #ffffff;
+  --text-main: #1a2340;
+  --text-muted: #6b7a99;
+  --border: #d4e1f7;
+  --shadow: 0 20px 60px rgba(43,91,224,.13);
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text-main);
+}
+
+/* ── TOPBAR ─────────────────────────────── */
+.topbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: var(--blue-dark);
+  display: flex; justify-content: flex-end; align-items: center;
+  padding: 0 40px; height: 44px; gap: 28px;
+}
+.topbar a {
+  color: rgba(255,255,255,.85); font-size: 13px; font-weight: 500;
+  text-decoration: none; letter-spacing: .02em;
+  transition: color .2s;
+}
+.topbar a:hover { color: #fff; }
+
+/* ── MAIN LAYOUT ─────────────────────────── */
+.page {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  padding-top: 44px;
+}
+
+.hero {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 0;
+  padding: 0 60px 0 80px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ── LEFT COLUMN ─────────────────────────── */
+.left {
+  padding: 60px 40px 60px 0;
+  position: relative;
+}
+
+.brand {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 36px;
+}
+.brand-icon {
+  width: 46px; height: 46px;
+  background: linear-gradient(135deg, var(--blue-mid), var(--teal));
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 18px rgba(43,91,224,.35);
+}
+.brand-icon svg { width: 26px; height: 26px; fill: #fff; }
+.brand-name {
+  font-family: 'Nunito', sans-serif;
+  font-size: 26px; font-weight: 800;
+  color: var(--text-main);
+}
+.brand-name span { color: var(--blue-mid); }
+
+.headline {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(30px, 3.5vw, 42px);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--text-main);
+  max-width: 480px;
+}
+.headline em {
+  font-style: normal;
+  color: var(--blue-mid);
+}
+
+/* Floating badge */
+.badge-secure {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 36px;
+  background: rgba(255,255,255,.9);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 8px 18px 8px 10px;
+  box-shadow: 0 4px 16px rgba(43,91,224,.1);
+}
+.badge-secure .dot {
+  width: 32px; height: 32px;
+  background: linear-gradient(135deg, var(--blue-mid), var(--teal));
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.badge-secure .dot svg { width: 16px; height: 16px; fill: #fff; }
+.badge-secure-text { font-size: 13px; }
+.badge-secure-text strong { display: block; font-weight: 700; color: var(--text-main); font-size: 13px; }
+.badge-secure-text span  { color: var(--text-muted); font-size: 11.5px; }
+
+/* Illustration area */
+.illustration {
+  position: relative;
+  margin-top: 40px;
+  height: 220px;
+}
+
+/* Blob background */
+.blob {
+  position: absolute;
+  top: 0; left: -20px;
+  width: 340px; height: 200px;
+  background: linear-gradient(135deg, rgba(79,125,255,.15), rgba(62,198,212,.12));
+  border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+  filter: blur(4px);
+}
+
+/* Floating icons */
+.float-icon {
+  position: absolute;
+  width: 48px; height: 48px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(43,91,224,.18);
+  display: flex; align-items: center; justify-content: center;
+  animation: float 3s ease-in-out infinite;
+}
+.float-icon svg { width: 24px; height: 24px; }
+.fi-calendar { top: 10px; left: 20px; animation-delay: 0s; }
+.fi-heart    { top: -10px; left: 190px; animation-delay: .8s; background: var(--blue-mid); }
+.fi-heart svg { fill: #fff; }
+.fi-lock     { bottom: 20px; left: 280px; animation-delay: 1.6s; }
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+/* Doctors card */
+.doc-card {
+  position: absolute;
+  bottom: 0; left: 30px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 16px 24px;
+  box-shadow: 0 12px 40px rgba(43,91,224,.14);
+  display: flex; align-items: center; gap: 16px;
+  animation: fadeUp .8s ease both;
+}
+.doc-avatars { display: flex; }
+.doc-avatars .av {
+  width: 38px; height: 38px; border-radius: 50%;
+  border: 2px solid #fff;
+  background: linear-gradient(135deg, #b3c8f7, #7faeff);
+  margin-left: -10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700; color: var(--blue-dark);
+}
+.doc-avatars .av:first-child { margin-left: 0; }
+.doc-info strong { display: block; font-size: 13px; font-weight: 700; color: var(--text-main); }
+.doc-info span   { font-size: 11.5px; color: var(--text-muted); }
+.stars { color: #f5b800; font-size: 11px; letter-spacing: 1px; }
+
+@keyframes fadeUp {
+  from { opacity:0; transform: translateY(20px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* ── RIGHT COLUMN — CARD ─────────────────── */
+.card {
+  background: var(--card-bg);
+  border-radius: 24px;
+  padding: 44px 40px 40px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255,255,255,.9);
+  animation: fadeUp .7s ease .1s both;
+}
+
+.card-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.card-icon {
+  width: 54px; height: 54px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue-mid), var(--teal));
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 16px;
+  box-shadow: 0 8px 24px rgba(43,91,224,.3);
+}
+.card-icon svg { width: 26px; height: 26px; fill: #fff; }
+.card-header h2 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px; font-weight: 800;
+  color: var(--text-main);
+}
+.card-header h2 span { color: var(--blue-mid); }
+.card-header p {
+  font-size: 13px; color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* Form */
+.form-group { margin-bottom: 18px; }
+label {
+  display: block;
+  font-size: 13px; font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 6px;
+}
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  height: 46px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 0 14px;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--text-main);
+  background: #f5f8ff;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s, background .2s;
+}
+input::placeholder { color: #b0bcda; }
+input:focus {
+  border-color: var(--blue-accent);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(79,125,255,.15);
+}
+
+.forgot {
+  display: block; text-align: right;
+  font-size: 12.5px; color: var(--blue-mid);
+  text-decoration: none; margin-top: 6px;
+  font-weight: 600;
+}
+.forgot:hover { text-decoration: underline; }
+
+.btn-login {
+  width: 100%; height: 50px;
+  margin-top: 24px;
+  background: linear-gradient(135deg, var(--blue-mid) 0%, var(--blue-accent) 100%);
+  border: none; border-radius: 12px;
+  color: #fff;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px; font-weight: 800;
+  letter-spacing: .02em;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  box-shadow: 0 8px 24px rgba(43,91,224,.35);
+  transition: transform .15s, box-shadow .15s;
+}
+.inicio{
+  color: #d4e1f7;
+}
+.btn-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(43,91,224,.45);
+}
+.btn-login:active { transform: translateY(0); }
+.btn-login svg { width: 18px; height: 18px; fill: #fff; }
+
+.divider {
+  display: flex; align-items: center; gap: 12px;
+  margin: 22px 0;
+  color: var(--text-muted); font-size: 12px;
+}
+.divider::before, .divider::after {
+  content:''; flex:1;
+  height: 1px; background: var(--border);
+}
+
+.register-text {
+  text-align: center; font-size: 13.5px; color: var(--text-muted);
+}
+.register-text a {
+  color: var(--blue-mid); font-weight: 700; text-decoration: none;
+}
+.register-text a:hover { text-decoration: underline; }
+
+/* ── FOOTER ─────────────────────────────── */
+footer {
+  background: #fff;
+  border-top: 1px solid var(--border);
+  padding: 18px 80px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-brand {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800; font-size: 14px; color: var(--text-main);
+}
+.footer-brand span { color: var(--blue-mid); }
+.footer-copy { font-size: 11.5px; color: var(--text-muted); margin-top: 2px; }
+
+.footer-links { display: flex; gap: 24px; }
+.footer-links a {
+  font-size: 12.5px; color: var(--text-muted);
+  text-decoration: none; font-weight: 500;
+}
+.footer-links a:hover { color: var(--blue-mid); }
+
+/* ── RESPONSIVE ──────────────────────────── */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 40px 24px;
+    gap: 32px;
+  }
+  .left { padding: 0; }
+  .illustration { display: none; }
+  .card { padding: 36px 28px; }
+  footer { flex-direction: column; gap: 12px; text-align: center; padding: 20px; }
+  .footer-links { justify-content: center; }
+}
+
+/* ══════════════════════════════════════════
+   WELCOME / SUCCESS CARD
+   ══════════════════════════════════════════ */
+
+/* Banner superior con gradiente azul */
+.welcome-banner {
+  background: linear-gradient(135deg, var(--blue-mid) 0%, var(--blue-accent) 100%);
+  border-radius: 18px 18px 0 0;
+  padding: 36px 0 32px;
+  display: flex; align-items: center; justify-content: center;
+}
+.welcome-check {
+  width: 64px; height: 64px; border-radius: 50%;
+  border: 3px solid rgba(255,255,255,.5);
+  display: flex; align-items: center; justify-content: center;
+}
+.welcome-check svg {
+  width: 36px; height: 36px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Cuerpo de la tarjeta de bienvenida */
+.welcome-body {
+  padding: 32px 36px 36px;
+  text-align: center;
+}
+
+.welcome-title {
+  font-family: 'Nunito', sans-serif;
+  font-size: 24px; font-weight: 800;
+  color: var(--blue-mid);
+  margin-bottom: 10px;
+}
+
+.welcome-subtitle {
+  font-size: 13.5px; color: var(--text-muted);
+  line-height: 1.6; max-width: 320px; margin: 0 auto 28px;
+}
+
+/* Caja de próximos pasos */
+.next-steps {
+  background: #f0f5ff;
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 20px;
+  text-align: left;
+  margin-bottom: 28px;
+}
+.next-steps-header {
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 8px;
+}
+.next-steps-header svg {
+  width: 18px; height: 18px;
+  fill: none; stroke: var(--blue-mid);
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.next-steps-header span {
+  font-size: 13px; font-weight: 700; color: var(--blue-mid);
+}
+.next-steps p {
+  font-size: 13px; color: var(--text-muted); line-height: 1.55;
+}
+
+/* Botón principal de la welcome */
+.btn-go {
+  width: 100%; height: 50px;
+  background: linear-gradient(135deg, var(--blue-mid) 0%, var(--blue-accent) 100%);
+  border: none; border-radius: 12px;
+  color: #fff;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px; font-weight: 800;
+  letter-spacing: .02em; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  box-shadow: 0 8px 24px rgba(43,91,224,.35);
+  transition: transform .15s, box-shadow .15s;
+  text-decoration: none;
+}
+.btn-go:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(43,91,224,.45);
+}
+.btn-go:active { transform: translateY(0); }
+.btn-go svg { width: 18px; height: 18px; fill: #fff; }
+
+.help-link {
+  display: block; margin-top: 18px;
+  font-size: 13px; color: var(--blue-mid);
+  font-weight: 600; text-decoration: none; text-align: center;
+}
+.help-link:hover { text-decoration: underline; }
+
+/* Card sin padding propio cuando usa welcome-banner */
+.card-welcome {
+  background: var(--card-bg);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255,255,255,.9);
+  overflow: hidden;
+  animation: fadeUp .7s ease .1s both;
+}
+
+/* ══════════════════════════════════════════
+   SHARED FORM UTILITIES (register / forgot)
+   ══════════════════════════════════════════ */
+
+input[type="text"],
+input[type="tel"],
+select {
+  width: 100%;
+  height: 46px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 0 14px;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--text-main);
+  background: #f5f8ff;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s, background .2s;
+  appearance: none; -webkit-appearance: none;
+}
+select { cursor: pointer; }
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.form-group { display: flex; flex-direction: column; }
+.form-group.full { grid-column: 1 / -1; }
+
+.select-wrap { position: relative; }
+.select-wrap select { padding-right: 36px; }
+.select-wrap::after {
+  content: '';
+  position: absolute; right: 13px; top: 50%;
+  transform: translateY(-50%);
+  width: 0; height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid var(--text-muted);
+  pointer-events: none;
+}
+
+.phone-wrap { display: flex; gap: 8px; }
+.phone-prefix {
+  width: 68px; flex-shrink: 0; height: 46px;
+  border: 1.5px solid var(--border); border-radius: 10px;
+  background: #f5f8ff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13.5px; font-weight: 600; color: var(--text-main);
+}
+.phone-wrap input { flex: 1; }
+
+.pass-wrap { position: relative; }
+.pass-wrap input { padding-right: 42px; }
+.pass-toggle {
+  position: absolute; right: 12px; top: 50%;
+  transform: translateY(-50%);
+  background: none; border: none; cursor: pointer; padding: 0;
+  color: var(--text-muted); display: flex; align-items: center;
+  transition: color .2s;
+}
+.pass-toggle:hover { color: var(--blue-mid); }
+.pass-toggle svg { width: 18px; height: 18px; }
+
+
+.checkbox-row {
+  display: flex; align-items: flex-start; gap: 10px;
+  margin: 18px 0 22px;
+  font-size: 12.5px; color: var(--text-muted); line-height: 1.5;
+}
+.checkbox-row input[type="checkbox"] {
+  width: 16px; height: 16px; flex-shrink: 0;
+  margin-top: 1px; accent-color: var(--blue-mid); cursor: pointer;
+}
+.checkbox-row a { color: var(--blue-mid); font-weight: 600; text-decoration: none; }
+.checkbox-row a:hover { text-decoration: underline; }
+
+.btn-row { display: flex; gap: 12px; justify-content: flex-end; }
+
+.btn-cancel {
+  height: 46px; padding: 0 26px;
+  border: 1.5px solid var(--border); border-radius: 11px;
+  background: #fff; font-family: inherit; font-size: 14px; font-weight: 600;
+  color: var(--text-muted); cursor: pointer;
+  transition: border-color .2s, color .2s;
+}
+.btn-cancel:hover { border-color: var(--blue-mid); color: var(--blue-mid); }
+
+.btn-create {
+  height: 46px; padding: 0 28px;
+  background: linear-gradient(135deg, var(--blue-mid), var(--blue-accent));
+  border: none; border-radius: 11px;
+  font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 800;
+  color: #fff; cursor: pointer;
+  box-shadow: 0 8px 24px rgba(43,91,224,.35);
+  transition: transform .15s, box-shadow .15s;
+}
+.btn-create:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(43,91,224,.45); }
+.btn-create:active { transform: translateY(0); }
+
+.card-title {
+  font-family: 'Nunito', sans-serif;
+  font-size: 24px; font-weight: 800;
+  color: var(--text-main); margin-bottom: 4px;
+}
+.card-subtitle { font-size: 13px; color: var(--text-muted); margin-bottom: 28px; }
+
+.login-text { text-align: center; margin-top: 22px; font-size: 13px; color: var(--text-muted); }
+.login-text a { color: var(--blue-mid); font-weight: 700; text-decoration: none; }
+.login-text a:hover { text-decoration: underline; }
+
+/* ══════════════════════════════════════════
+   FORGOT PASSWORD CARD
+   ══════════════════════════════════════════ */
+
+.forgot-icon-wrap { display: flex; justify-content: center; margin-bottom: 20px; }
+.forgot-icon-circle {
+  width: 60px; height: 60px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue-mid), var(--blue-accent));
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 24px rgba(43,91,224,.3);
+}
+.forgot-icon-circle svg {
+  width: 28px; height: 28px;
+  fill: none; stroke: #fff;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+.forgot-title {
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px; font-weight: 800;
+  color: var(--text-main); text-align: center; margin-bottom: 8px;
+}
+.forgot-subtitle {
+  font-size: 13px; color: var(--text-muted);
+  text-align: center; line-height: 1.55;
+  margin-bottom: 28px; max-width: 280px; margin-left: auto; margin-right: auto;
+}
+
+.input-icon-wrap { position: relative; }
+.input-icon-wrap svg {
+  position: absolute; left: 13px; top: 50%;
+  transform: translateY(-50%);
+  width: 16px; height: 16px;
+  fill: none; stroke: var(--text-muted);
+  stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+  pointer-events: none;
+}
+.input-icon-wrap input { padding-left: 40px; }
+
+.btn-send {
+  width: 100%; height: 50px;
+  margin-top: 20px;
+  background: linear-gradient(135deg, var(--blue-mid) 0%, var(--blue-accent) 100%);
+  border: none; border-radius: 12px;
+  color: #fff;
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px; font-weight: 800;
+  letter-spacing: .02em; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  box-shadow: 0 8px 24px rgba(43,91,224,.35);
+  transition: transform .15s, box-shadow .15s;
+}
+.btn-send:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(43,91,224,.45); }
+.btn-send:active { transform: translateY(0); }
+.btn-send svg { width: 18px; height: 18px; fill: #fff; }
+
+.back-link {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  margin-top: 18px;
+  font-size: 13px; color: var(--blue-mid); font-weight: 600;
+  text-decoration: none; transition: opacity .2s;
+}
+.back-link:hover { opacity: .75; }
+.back-link svg {
+  width: 15px; height: 15px;
+  fill: none; stroke: var(--blue-mid);
+  stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+.security-badges {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  margin-top: 24px; font-size: 11.5px; color: var(--text-muted);
+}
+.security-badges .sep { color: var(--border); }
+.sec-badge { display: flex; align-items: center; gap: 5px; }
+.sec-badge svg {
+  width: 13px; height: 13px;
+  fill: none; stroke: var(--text-muted);
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* ══════════════════════════════════════════
+   EMAIL SENT / CONFIRMATION CARD
+   ══════════════════════════════════════════ */
+
+.email-sent-card {
+  background: var(--card-bg);
+  border-radius: 24px;
+  padding: 44px 40px 40px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255,255,255,.9);
+  animation: fadeUp .7s ease .1s both;
+  text-align: center;
+}
+
+/* Icono circular con sobre */
+.email-sent-icon {
+  width: 62px; height: 62px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue-mid), var(--blue-accent));
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+  box-shadow: 0 8px 24px rgba(43,91,224,.3);
+}
+.email-sent-icon svg {
+  width: 28px; height: 28px;
+  fill: none; stroke: #fff;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+.email-sent-title {
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px; font-weight: 800;
+  color: var(--text-main); margin-bottom: 10px;
+}
+
+.email-sent-subtitle {
+  font-size: 13px; color: var(--text-muted);
+  line-height: 1.6; max-width: 300px;
+  margin: 0 auto 24px;
+}
+
+/* Caja informativa gris */
+.email-info-box {
+  background: #f0f5ff;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 13px; color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Enlace "¿No recibiste el correo?" */
+.resend-link {
+  font-size: 13px; color: var(--text-muted);
+  margin-bottom: 24px; line-height: 1.5;
+}
+.resend-link a {
+  display: block;
+  color: var(--blue-mid); font-weight: 600;
+  text-decoration: none; margin-top: 2px;
+}
+.resend-link a:hover { text-decoration: underline; }
+
+/* Botón volver (reutiliza btn-send pero como <a>) */
+.btn-back-login {
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; height: 50px;
+  background: linear-gradient(135deg, var(--blue-mid) 0%, var(--blue-accent) 100%);
+  border: none; border-radius: 12px;
+  color: #fff; text-decoration: none;
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px; font-weight: 800;
+  letter-spacing: .02em; cursor: pointer;
+  box-shadow: 0 8px 24px rgba(43,91,224,.35);
+  transition: transform .15s, box-shadow .15s;
+}
+.btn-back-login:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(43,91,224,.45); }
+.btn-back-login:active { transform: translateY(0); }
+
+/* ══════════════════════════════════════════
+   ROLE SELECTOR PANEL
+   ══════════════════════════════════════════ */
+
+.role-panel {
+  display: flex; flex-direction: column;
+  justify-content: center;
+  padding: 44px 40px;
+}
+
+.role-heading {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(20px, 2.2vw, 26px); font-weight: 800;
+  color: var(--text-main); text-align: center;
+  margin-bottom: 6px;
+}
+
+.role-note {
+  font-size: 12.5px; color: var(--text-muted);
+  text-align: center; margin-bottom: 32px; line-height: 1.5;
+}
+
+.role-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.role-card {
+  background: var(--card-bg);
+  border: 1.5px solid var(--border);
+  border-radius: 18px;
+  padding: 30px 20px 24px;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex; flex-direction: column; align-items: center;
+  box-shadow: 0 6px 20px rgba(43,91,224,.07);
+  transition: transform .18s, box-shadow .18s, border-color .18s;
+  animation: fadeUp .6s ease both;
+}
+.role-card:nth-child(2) { animation-delay: .1s; }
+.role-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px rgba(43,91,224,.15);
+  border-color: var(--blue-accent);
+}
+
+/* Icono del rol */
+.role-icon {
+  width: 56px; height: 56px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 16px;
+}
+.role-icon svg {
+  width: 28px; height: 28px;
+  fill: none; stroke-width: 1.8;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* Paciente — azul suave */
+.role-card--paciente .role-icon {
+  background: #e8eeff;
+}
+.role-card--paciente .role-icon svg { stroke: var(--blue-mid); }
+
+/* Médico — naranja suave */
+.role-card--medico .role-icon {
+  background: #fff3ea;
+}
+.role-card--medico .role-icon svg { stroke: #e07b2b; }
+
+.role-name {
+  font-family: 'Nunito', sans-serif;
+  font-size: 17px; font-weight: 800;
+  color: var(--text-main); margin-bottom: 6px;
+}
+
+.role-desc {
+  font-size: 12px; color: var(--text-muted);
+  line-height: 1.5; margin-bottom: 18px;
+}
+
+/* Link de acción */
+.role-action {
+  font-size: 12px; font-weight: 700;
+  letter-spacing: .02em;
+  display: flex; align-items: center; gap: 4px;
+  text-decoration: none;
+}
+.role-card--paciente .role-action { color: var(--blue-mid); }
+.role-card--medico   .role-action { color: #e07b2b; }
+.role-action svg {
+  width: 13px; height: 13px;
+  fill: none; stroke: currentColor;
+  stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
+}
+
+@media (max-width: 900px) {
+  .role-cards { grid-template-columns: 1fr; }
+  .role-panel { padding: 32px 20px; }
+}

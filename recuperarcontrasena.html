@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Salud Ya – Recuperar contraseña</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <a href="#">Contact Us</a>
+  <a href="#">Help</a>
+</nav>
+
+<div class="page">
+  <section class="hero">
+
+    <!-- LEFT -->
+    <div class="left">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L4 5.5V11c0 5 3.5 9.3 8 10.4C16.5 20.3 20 16 20 11V5.5L12 2zm0 10.5c-.4 0-.8-.1-1.1-.4L9 10.2l1.1-1.1 1.9 1.9 3.9-3.9 1.1 1.1-5 5c-.3.2-.7.3-1 .3z"/>
+          </svg>
+        </div>
+        <div class="brand-name">Salud <span>Ya</span></div>
+      </div>
+
+      <h1 class="headline">
+        Agenda tu cita médica<br>fácil, <em>rápida y segura</em>
+      </h1>
+
+      <div class="illustration">
+        <div class="blob"></div>
+
+        <div class="float-icon fi-calendar">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="4" width="18" height="17" rx="3" stroke="#2b5be0" stroke-width="1.8" fill="none"/>
+            <path d="M8 2v4M16 2v4M3 9h18" stroke="#2b5be0" stroke-width="1.8" stroke-linecap="round"/>
+            <circle cx="8" cy="14" r="1" fill="#2b5be0"/>
+            <circle cx="12" cy="14" r="1" fill="#2b5be0"/>
+            <circle cx="16" cy="14" r="1" fill="#2b5be0"/>
+          </svg>
+        </div>
+
+        <div class="float-icon fi-heart">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+        </div>
+
+        <div class="float-icon fi-lock">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="5" y="11" width="14" height="10" rx="2" stroke="#2b5be0" stroke-width="1.8" fill="none"/>
+            <path d="M8 11V7a4 4 0 018 0v4" stroke="#2b5be0" stroke-width="1.8" stroke-linecap="round"/>
+            <circle cx="12" cy="16" r="1.5" fill="#2b5be0"/>
+          </svg>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-avatars">
+            <div class="av">D</div>
+            <div class="av" style="background:linear-gradient(135deg,#c3dafe,#93c5fd)">M</div>
+            <div class="av" style="background:linear-gradient(135deg,#a7f3d0,#6ee7b7)">E</div>
+          </div>
+          <div class="doc-info">
+            <div class="stars">★★★★★</div>
+            <strong>+1,200 médicos</strong>
+            <span>disponibles ahora</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="badge-secure">
+        <div class="dot">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L4 5.5V11c0 5 3.5 9.3 8 10.4C16.5 20.3 20 16 20 11V5.5L12 2z"/>
+          </svg>
+        </div>
+        <div class="badge-secure-text">
+          <strong>Acceso seguro y protegido</strong>
+          <span>Tu información está en buenas manos</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT — FORGOT PASSWORD CARD -->
+    <div class="card">
+
+      <!-- Icono reloj / recuperación -->
+      <div class="forgot-icon-wrap">
+        <div class="forgot-icon-circle">
+          <!-- Clock/history icon -->
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+            <path d="M3 3v5h5"/>
+            <path d="M12 7v5l4 2"/>
+          </svg>
+        </div>
+      </div>
+
+      <h2 class="forgot-title">Recuperar contraseña</h2>
+      <p class="forgot-subtitle">
+        Ingresa tu correo electrónico para recibir las instrucciones de recuperación.
+      </p>
+
+      <!-- Email con icono -->
+      <div class="form-group">
+        <label for="email">Correo electrónico</label>
+        <div class="input-icon-wrap">
+          <!-- Envelope icon -->
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="M2 7l10 7 10-7"/>
+          </svg>
+          <input type="email" id="email" placeholder="ejemplo@correo.com" autocomplete="email"/>
+        </div>
+      </div>
+
+      <!-- Botón enviar -->
+      <button class="btn-send" type="button" onclick="window.location.href='Comprobante.html'">
+        Enviar instrucciones
+        <!-- Arrow right icon -->
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </button>
+
+      <!-- Volver al inicio -->
+      <a href="login1.html" class="back-link">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Volver al inicio de sesión
+      </a>
+
+      <!-- Badges de seguridad -->
+      <div class="security-badges">
+        <div class="sec-badge">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L4 5.5V11c0 5 3.5 9.3 8 10.4C16.5 20.3 20 16 20 11V5.5L12 2z"/>
+          </svg>
+          Conexión segura
+        </div>
+        <span class="sep">•</span>
+        <div class="sec-badge">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="11" width="18" height="11" rx="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          Protección de datos
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <div class="footer-brand">Salud <span>ya</span></div>
+      <div class="footer-copy">© 2026 Salud ya. All rights reserved. Experiencia &amp; Precisión.</div>
+    </div>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Support</a>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>

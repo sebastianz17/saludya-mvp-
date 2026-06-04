@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salud Ya</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/medic.css">
+</head>
+<body>
+
+<!-- ── SIDEBAR ── -->
+<aside>
+  <div class="brand">
+    <div class="brand-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+    </div>
+    <div class="brand-text">
+      <strong>Salud Ya</strong>
+      <span>Plataforma Médica</span>
+    </div>
+  </div>
+
+  <nav>
+    <a href="medico.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      Panel de Control
+    </a>
+    <a href="medico2.html" class="active">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Agenda Médica
+    </a>
+    <a href="#">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Mis Pacientes
+    </a>
+    <a href="#">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      Historiales Clínicos
+    </a>
+  </nav>
+
+  <div class="sidebar-bottom">
+    <div class="assist-card">
+      <strong>Asistencia 24/7</strong>
+      <p>¿Necesitas ayuda con la plataforma?</p>
+      <button class="btn-contact" style="margin-top:10px">Contactar</button>
+    </div>
+    <button class="btn-logout" onclick="window.location. href='login1.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      Cerrar Sesión
+    </button>
+  </div>
+</aside>
+
+<!-- ── MAIN ── -->
+<div class="main-wrap">
+  <header>
+    <div class="search-bar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" placeholder="Buscar doctores, citas o resultados...">
+    </div>
+
+    <div class="topbar-right">
+      <button class="icon-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <span class="notif-dot"></span>
+      </button>
+      <button class="icon-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M19.07 19.07l-1.41-1.41M4.93 19.07l1.41-1.41M4.93 4.93l1.41 1.41M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
+      </button>
+      <div class="user-chip">
+        <div class="avatar">RM</div>
+        <div class="user-info">
+          <strong>Dr. Ricardo Mendoza</strong>
+          <span>Cardiólogo Principal</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="content">
+    <div class="page-title">
+      <h1>Agenda Médica</h1>
+      <p>Administra tus citas y horarios de atención.</p>
+    </div>
+
+    <div class="grid-layout">
+
+      <!-- LEFT: Calendar -->
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div class="card">
+          <div class="cal-header">
+            <span>Octubre 2024</span>
+            <div class="cal-nav">
+              <button>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              </button>
+              <button>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="cal-grid">
+            <div class="cal-days-header">
+              <span>Dom</span><span>Lun</span><span>Mar</span>
+              <span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span>
+            </div>
+            <div class="cal-cells">
+              <div class="cal-cell other-month">29</div>
+              <div class="cal-cell other-month">30</div>
+              <div class="cal-cell">1</div>
+              <div class="cal-cell">2</div>
+              <div class="cal-cell">3</div>
+              <div class="cal-cell">4</div>
+              <div class="cal-cell">5</div>
+              <div class="cal-cell">6</div>
+              <div class="cal-cell">7</div>
+              <div class="cal-cell">8</div>
+              <div class="cal-cell">9</div>
+              <div class="cal-cell">10</div>
+              <div class="cal-cell">11</div>
+              <div class="cal-cell">12</div>
+              <div class="cal-cell">13</div>
+              <div class="cal-cell">14</div>
+              <div class="cal-cell">15</div>
+              <div class="cal-cell">16</div>
+              <div class="cal-cell">17</div>
+              <div class="cal-cell">18</div>
+              <div class="cal-cell">19</div>
+              <div class="cal-cell">20</div>
+              <div class="cal-cell">21</div>
+              <div class="cal-cell today">22</div>
+              <div class="cal-cell">23</div>
+              <div class="cal-cell">24</div>
+              <div class="cal-cell">25</div>
+              <div class="cal-cell">26</div>
+              <div class="cal-cell">27</div>
+              <div class="cal-cell">28</div>
+              <div class="cal-cell">29</div>
+              <div class="cal-cell">30</div>
+              <div class="cal-cell">31</div>
+              <div class="cal-cell other-month">1</div>
+              <div class="cal-cell other-month">2</div>
+            </div>
+          </div>
+
+          <div class="week-summary">
+            <p class="label">Total citas</p>
+            <p class="count">48</p>
+            <div class="bar-bg"><div class="bar-fill"></div></div>
+            <button class="btn-report">Ver Reporte Completo</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Appointments -->
+      <div class="card">
+        <div class="appt-header">
+          <div>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+              <div class="appt-date cal-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              </div>
+              <div>
+                <h2>Martes, 22 de Octubre</h2>
+                <p style="font-size:12px;color:var(--muted);margin-top:1px;">8 citas programadas para hoy</p>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end;">
+            <div class="filter-group">
+              <label>Consultorio</label>
+              <select class="filter-select"><option>Todos</option></select>
+            </div>
+            <div class="filter-group">
+              <label>Tipo de Cita</label>
+              <select class="filter-select"><option>Todos</option></select>
+            </div>
+            <button class="btn-new">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Nueva Cita
+            </button>
+          </div>
+        </div>
+
+        <div class="appt-list">
+
+          <!-- Appointment 1 -->
+          <div class="appt-item" onclick="window.location.href='detalle-cita.html'" style="cursor:pointer">
+            <div class="appt-time"><span class="hr">09:00</span><span class="ampm">AM</span></div>
+            <div class="appt-avatar av-pink">MR</div>
+            <div class="appt-info">
+              <strong>Martha Elena Rodríguez</strong>
+              <span>Cita: Seguimiento Post-Op</span>
+            </div>
+            <div class="tags">
+              <span class="tag seguimiento">SEGUIMIENTO</span>
+              <span class="tag confirmada">● CONFIRMADA</span>
+            </div>
+            <button class="more-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+            </button>
+          </div>
+
+          <!-- Appointment 2 (active) -->
+          <div class="appt-item active-appt" onclick="window.location.href='detalle-cita.html'" style="cursor:pointer">
+            <div class="appt-time"><span class="hr">10:00</span><span class="ampm">AM</span></div>
+            <div class="appt-avatar av-blue">RS</div>
+            <div class="appt-info">
+              <strong>Ricardo Mendoza Soto</strong>
+              <span>Cita: Primera Vez (Consulta Oral)</span>
+            </div>
+            <div class="tags">
+              <span class="tag primera-vez">PRIMERA VEZ</span>
+              <span class="tag en-progreso">● EN PROGRESO</span>
+            </div>
+            <button class="more-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+            </button>
+          </div>
+
+          <!-- Appointment 3 -->
+          <div class="appt-item" onclick="window.location.href='detalle-cita.html'" style="cursor:pointer">
+            <div class="appt-time"><span class="hr">11:00</span><span class="ampm">AM</span></div>
+            <div class="appt-avatar av-teal">SL</div>
+            <div class="appt-info">
+              <strong>Sofía Marina López</strong>
+              <span>Cita: Control de Presión</span>
+            </div>
+            <div class="tags">
+              <span class="tag seguimiento">SEGUIMIENTO</span>
+              <span class="tag pendiente">● PENDIENTE</span>
+            </div>
+            <button class="more-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+            </button>
+          </div>
+
+          <!-- Appointment 4 -->
+          <div class="appt-item" onclick="window.location.href='detalle-cita.html'" style="cursor:pointer">
+            <div class="appt-time"><span class="hr">12:30</span><span class="ampm">PM</span></div>
+            <div class="appt-avatar av-orange">GS</div>
+            <div class="appt-info">
+              <strong>Guillermo Sandillán</strong>
+              <span>Cita: Revisión Resultados</span>
+            </div>
+            <div class="tags">
+              <span class="tag seguimiento">SEGUIMIENTO</span>
+              <span class="tag confirmada">● CONFIRMADA</span>
+            </div>
+            <button class="more-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+            </button>
+          </div>
+
+        </div>
+
+        <div class="appt-footer">
+          <span>Mostrando 4 de 8 citas</span>
+          <div class="pagination">
+            <button class="btn-page">Anterior</button>
+            <button class="btn-page primary">Siguiente</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /grid -->
+  </div><!-- /content -->
+</div><!-- /main-wrap -->
+
+<button class="fab">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+</button>
+
+</body>
+</html>
